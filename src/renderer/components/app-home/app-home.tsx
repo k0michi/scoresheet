@@ -41,13 +41,16 @@ export class AppHome {
   }
 
   render() {
+    let entries = Object.entries(this.questions);
+    entries.sort((a, b) => a[0].localeCompare(b[0], 'en', { numeric: true }));
+
     return (
       <main>
         <div>
           <button onClick={this.onOpen.bind(this)}>Open</button>
         </div>
-        <table id="board">{Object.entries(this.questions).map(([name, attempts]) =>
-          <tr><td class="question-name">{name}</td>{attempts.map(a => <td class="cell" style={{backgroundColor: palette[a.grade - 1]}}>{a.grade}</td>)}</tr>
+        <table id="board">{entries.map(([name, attempts]) =>
+          <tr><td class="question-name">{name}</td>{attempts.map(a => <td class="cell" style={{ backgroundColor: palette[a.grade - 1] }}>{a.grade}</td>)}</tr>
         )}</table>
       </main>
     );
