@@ -1,0 +1,61 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --border-color: rgb(59, 59, 59);
+}
+
+html {
+  color: white;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+}
+
+html,
+body,
+#root,
+#app {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-bar {
+  flex: 0 0 32px;
+  background-color: rgb(72, 72, 72);
+}
+
+.views {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+.list-view {
+  flex: 1 1 0;
+  overflow: auto;
+}
+
+.table-view {
+  flex: 1 1 0;
+  overflow: auto;
+}
+
+.cell {
+  padding: 2px 16px;
+  color: rgb(48, 48, 48);
+}

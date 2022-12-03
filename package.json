@@ -1,0 +1,70 @@
+{
+  "name": "scoresheet",
+  "productName": "Scoresheet",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "concurrently \"tsc --project tsconfig.main.json --watch\" \"vite\"",
+    "build": "concurrently \"tsc --project tsconfig.main.json\" \"vite build\"",
+    "start": "electron-forge start",
+    "package": "yarn build && electron-forge package",
+    "make": "yarn build && electron-forge make",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@js-joda/core": "^5.4.2",
+    "@js-joda/timezone": "^2.15.0",
+    "@k0michi/now": "^0.0.1",
+    "@tabler/icons": "^1.111.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "immer": "^9.0.15",
+    "kyoka": "^0.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "@types/electron": "^1.6.10",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/uuid": "^8.3.4",
+    "@vitejs/plugin-react": "^2.0.0",
+    "concurrently": "^7.3.0",
+    "electron": "^20.0.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "vite_react_boilerplate"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
